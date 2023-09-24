@@ -16,12 +16,14 @@ COPY app.py .
 
 ENV SENTENCE_TRANSFORMERS_HOME /app
 # cache ディレクトリを作成
-RUN mkdir -p /app/cache　&& chmod 777 /app/cache
+RUN mkdir -p /app/cache
+RUN chmod 777 /app/cache
 # TRANSFORMERS_CACHE の場所を設定
 ENV TRANSFORMERS_CACHE /app/cache
 
 RUN mkdir -p /app/matplotlib_cache
-ENV MPLCONFIGDIR /app/matplotlib_cache　&& chmod 777 /app/matplotlib_cache
+RUN chmod 777 /app/matplotlib_cache
+ENV MPLCONFIGDIR /app/matplotlib_cache
 
 # Gradioが使用するポートを公開
 EXPOSE 8000
