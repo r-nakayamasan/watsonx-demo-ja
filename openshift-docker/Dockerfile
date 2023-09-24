@@ -21,6 +21,8 @@ RUN mkdir -p /app/cache
 ENV TRANSFORMERS_CACHE /app/cache
 RUN mkdir -p /app/cache && chmod 777 /app/cache
 
+ENV MPLCONFIGDIR /app/matplotlib_cache
+
 # Gradioが使用するポートを公開
 EXPOSE 8000
 
