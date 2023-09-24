@@ -17,11 +17,8 @@ COPY app.py .
 # cache ディレクトリを作成
 RUN mkdir -p /app/cache
 # TRANSFORMERS_CACHE の場所を設定
-ENV TRANSFORMERS_CACHE /app/cache && chmod 777 /app/cache
-
-# cache ディレクトリを作成
-RUN mkdir -p /app/cache/directory
-ENV HF_HOME /app/cache/directory && chmod 777 /app/cache/directory
+# ENV TRANSFORMERS_CACHE /app/cache
+ENV ENTENCE_TRANSFORMERS_HOME /app/cache
 
 # Gradioが使用するポートを公開
 EXPOSE 8000
