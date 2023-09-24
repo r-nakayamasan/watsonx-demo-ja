@@ -11,6 +11,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install ibm-generative-ai==0.2.5
 
 WORKDIR /app
+RUN chmod 777 /app
 
 COPY app.py .
 
@@ -24,6 +25,8 @@ ENV TRANSFORMERS_CACHE /app/cache
 RUN mkdir -p /app/matplotlib_cache
 RUN chmod 777 /app/matplotlib_cache
 ENV MPLCONFIGDIR /app/matplotlib_cache
+
+ENV FONTCONFIG_PATH=/etc/fonts
 
 # Gradioが使用するポートを公開
 EXPOSE 8000
