@@ -31,7 +31,11 @@ llm_id = 'bigcode/starcoder'
 
 #LLMの準備
 # APIのkeyを挿入
-api_key = "pak-Jm3eWZ2q74KEP07mymZYLLLMbiWz6D0hSzwf3uOvlv0"
+# api_key = input("あなたのBAM APIを入力して下さい")
+api_key = os.environ.get("API_KEY")
+if not api_key:
+    raise ValueError("API_KEY environment variable is not set!")
+
 api_endpoint = "https://bam-api.res.ibm.com/v1/"
 creds = Credentials(api_key=api_key, api_endpoint=api_endpoint)
 
