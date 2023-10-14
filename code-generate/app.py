@@ -370,4 +370,4 @@ with gr.Blocks(css='style.css') as demo:
 
 print("処理完了")
 
-demo.queue(max_size=20).launch(port=8000)
+demo.queue(max_size=20).launch(server_name="0.0.0.0", server_port=8000)
