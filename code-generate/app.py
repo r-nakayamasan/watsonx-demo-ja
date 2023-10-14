@@ -1,6 +1,6 @@
 from typing import Iterator
 
-import oc
+import os
 
 import gradio as gr
 import torch
