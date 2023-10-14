@@ -1,3 +1,4 @@
+print("インポート開始")
 from typing import Iterator
 
 import os
@@ -367,4 +368,6 @@ with gr.Blocks(css='style.css') as demo:
         api_name=False,
     )
 
-demo.queue(max_size=20).launch()
+print("処理完了")
+
+demo.queue(max_size=20).launch(port=8000)
