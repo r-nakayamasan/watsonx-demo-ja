@@ -3,6 +3,7 @@ import requests
 import json
 from dotenv import load_dotenv
 import os
+import logging
 
 load_dotenv()  # .envファイルをロード
 service_b_api_key = os.getenv("SERVICE_B_API_KEY")
@@ -13,15 +14,15 @@ app = Flask(__name__)
 @app.route('/proxy', methods=['POST'])
 def proxy():
     # サービスAからのリクエストを取得し、スキーマを変換
-    print("test")
     data_from_service_a = request.json
     transformed_data_for_b = transform_for_service_b(data_from_service_a)
+    app.logger.info("test")
 
     url = service_b_url+"/api/v1/search"
     # サービスBにリクエストを送信
     response = requests.post(url=url, json=transformed_data_for_b, auth=("apikey", service_b_api_key))
     data_from_service_b = response.json()
-    print(data_from_service_b)
+    app.logger.info(data_from_service_b)
 
     # サービスBからのレスポンスをサービスA用のスキーマに変換
     transformed_data_for_a = transform_for_service_a(data_from_service_b)
