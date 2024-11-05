@@ -27,6 +27,7 @@ def proxy():
 
     # サービスBからのレスポンスをサービスA用のスキーマに変換
     transformed_data_for_a = transform_for_service_a(data_from_service_b)
+    print(transformed_data_for_a)
     return jsonify(transformed_data_for_a)
 
 
