@@ -18,13 +18,12 @@ def proxy():
     # サービスAからのリクエストを取得し、スキーマを変換
     data_from_service_a = request.json
     transformed_data_for_b = transform_for_service_b(data_from_service_a)
-    app.logger.info("test")
 
     url = service_b_url+"/api/v1/search"
     # サービスBにリクエストを送信
     response = requests.post(url=url, json=transformed_data_for_b, auth=("apikey", service_b_api_key))
     data_from_service_b = response.json()
-    app.logger.info(data_from_service_b)
+    print(data_from_service_b)
 
     # サービスBからのレスポンスをサービスA用のスキーマに変換
     transformed_data_for_a = transform_for_service_a(data_from_service_b)
