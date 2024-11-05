@@ -20,6 +20,7 @@ def proxy():
     # サービスBにリクエストを送信
     response = requests.post(url=url, json=transformed_data_for_b, auth=("apikey", service_b_api_key))
     data_from_service_b = response.json()
+    print(data_from_service_b)
 
     # サービスBからのレスポンスをサービスA用のスキーマに変換
     transformed_data_for_a = transform_for_service_a(data_from_service_b)
