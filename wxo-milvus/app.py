@@ -13,6 +13,7 @@ app = Flask(__name__)
 @app.route('/proxy', methods=['POST'])
 def proxy():
     # サービスAからのリクエストを取得し、スキーマを変換
+    print("test")
     data_from_service_a = request.json
     transformed_data_for_b = transform_for_service_b(data_from_service_a)
 
