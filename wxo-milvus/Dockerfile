@@ -7,6 +7,7 @@ WORKDIR /app
 # アプリケーションファイルと依存関係をコピー
 COPY app.py /app
 COPY requirements.txt /app
+COPY .env /app
 
 # 依存関係をインストール
 RUN pip install -r requirements.txt
