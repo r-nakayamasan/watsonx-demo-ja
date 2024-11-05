@@ -28,7 +28,7 @@ def proxy():
     # サービスBからのレスポンスをサービスA用のスキーマに変換
     transformed_data_for_a = transform_for_service_a(data_from_service_b)
     print(transformed_data_for_a)
-    return jsonify(transformed_data_for_a)
+    return jsonify(transformed_data_for_a), 200
 
 
 def transform_for_service_b(data):
@@ -80,10 +80,9 @@ def transform_for_service_a(data):
     transformed_data = {
         "search_results": [
             {
-                "response_metadata": {
-                    "title": "検索結果",
-                    "body": text_data
-                }
+                
+                "title": "検索結果",
+                "body": text_data
             }
         ]
     }
